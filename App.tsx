@@ -1,11 +1,16 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import useCachedResources from "./src/hooks/useCachedResources";
-import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import {
+  Colors,
+  DefaultTheme,
+  Provider as PaperProvider,
+} from "react-native-paper";
 import Routes from "@/navigation/Routes";
 import "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { store } from "@/state";
+import { StatusBar } from "react-native";
+import LoadingScreen from "@/screens/LoadingScreen";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -14,19 +19,19 @@ export default function App() {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      primary: "tomato",
-      accent: "yellow",
+      primary: Colors.blueGrey400,
+      accent: Colors.amber600,
     },
   };
 
   if (!isLoadingComplete) {
-    return null;
+    return <LoadingScreen />;
   } else {
     return (
-       <Provider store={store}>
+      <Provider store={store}>
         <PaperProvider theme={theme}>
           <Routes />
-          <StatusBar />   
+          <StatusBar />
         </PaperProvider>
       </Provider>
     );
