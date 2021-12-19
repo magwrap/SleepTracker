@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import dataReducer from "./dataReducer";
+import sleepEntriesReducer from "./sleepEntriesReducer";
 
 const reducers = combineReducers({
-  data: dataReducer,
+  sleepEntries: sleepEntriesReducer,
 });
 
 export default reducers;

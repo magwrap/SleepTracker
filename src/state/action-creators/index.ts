@@ -1,27 +1,36 @@
-import { ActionType } from "../action-types";
+import { ActionTypes } from "../action-types";
 import { Dispatch } from "redux";
 import { Action } from "../actions";
 
-export const addState = (description: string) => {
-  description = "descripiton";
+export const addEntry = (entry: Omit<SleepEntry, "id">) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.ADDED,
+      type: ActionTypes.ADD_ENTRY,
       payload: {
-        description: description,
+        wakeUpTime: entry.wakeUpTime,
+        timeOfSleep: entry.timeOfSleep,
+        totalSleep: entry.totalSleep,
       },
     });
   };
 };
 
-export const removeState = (id: number) => {
-  id = 1;
+export const removeEntry = (id: number) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.REMOVED,
+      type: ActionTypes.REMOVE_ENTRY,
       payload: {
         id: id,
       },
+    });
+  };
+};
+
+export const editEntry = (entry: SleepEntry) => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionTypes.EDIT_ENTRY,
+      payload: entry,
     });
   };
 };

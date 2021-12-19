@@ -1,22 +1,20 @@
-import { ActionType } from "../action-types";
+import { ActionTypes } from "../action-types";
 
-interface AddedAction {
-  type: ActionType.ADDED;
-  payload: {
-    description: string;
-  };
+interface AddEntryAction {
+  type: ActionTypes.ADD_ENTRY;
+  payload: Omit<SleepEntry, "id">;
 }
 
-interface RemovedAction {
-  type: ActionType.REMOVED;
+interface RemoveEntryAction {
+  type: ActionTypes.REMOVE_ENTRY;
   payload: {
     id: number;
   };
 }
 
-// type Action = {
-//   type: string;
-//   payload?: any;
-// };
+interface EditEntryAction {
+  type: ActionTypes.EDIT_ENTRY;
+  payload: SleepEntry;
+}
 
-export type Action = AddedAction | RemovedAction;
+export type Action = AddEntryAction | RemoveEntryAction | EditEntryAction;
