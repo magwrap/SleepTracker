@@ -2,9 +2,11 @@ import { FontAwesome } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
+import useRedux from "./useRedux";
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+
   //TODO: dodac async storage
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {

@@ -9,11 +9,15 @@ const sleepEntriesReducer = (
   action: Action
 ) => {
   switch (action.type) {
+    case ActionTypes.LOAD_ENTRIES:
+      return action.payload;
+
     case ActionTypes.ADD_ENTRY:
       return [
         ...state,
         {
           id: nextId(),
+          sleepDate: action.payload.sleepDate,
           wakeUpTime: action.payload.wakeUpTime,
           timeOfSleep: action.payload.timeOfSleep,
           totalSleep: action.payload.totalSleep,

@@ -1,8 +1,9 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import HomeScreen from "@/screens/App/HomeScreen";
-import AllEntriesScreen from "@/screens/App/AllEntriesScreen";
+
 import { Colors } from "react-native-paper";
+import EntriesStackNavigator from "./EntriesStackNavigator";
 
 interface TopTabNavigatorProps {}
 
@@ -11,15 +12,18 @@ const Tab = createMaterialTopTabNavigator();
 const TopTabNavigator: React.FC<TopTabNavigatorProps> = ({}) => {
   return (
     <Tab.Navigator
-      initialRouteName="Tab1"
+      initialRouteName="HomeScreen"
       screenOptions={{
         tabBarItemStyle: { height: 0 },
         tabBarContentContainerStyle: { height: 2 },
         tabBarIndicatorStyle: { backgroundColor: Colors.amber600 },
         tabBarStyle: { backgroundColor: "black" },
       }}>
-      <Tab.Screen name="Tab1" component={HomeScreen} />
-      <Tab.Screen name="Tab2" component={AllEntriesScreen} />
+      <Tab.Screen name="HomeScreen" component={HomeScreen} />
+      <Tab.Screen
+        name="EntriesStackNavigator"
+        component={EntriesStackNavigator}
+      />
     </Tab.Navigator>
   );
 };

@@ -1,8 +1,9 @@
 type SleepEntry = {
   id: number;
-  timeOfSleep: string;
-  wakeUpTime: string;
-  totalSleep: string;
+  sleepDate: Date;
+  timeOfSleep: Date;
+  wakeUpTime: Date;
+  totalSleep: Date;
 };
 
 type SleepEntriesState = [] | SleepEntry[];

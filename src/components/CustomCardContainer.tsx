@@ -12,7 +12,12 @@ const CustomCardContainer: React.FC<CustomCardContainerProps> = ({
   return <Card style={styles.cardContainer}>{children}</Card>;
 };
 const styles = StyleSheet.create({
-  cardContainer: { marginVertical: 35, marginHorizontal: 25, height: "40%" },
+  cardContainer: {
+    marginVertical: 20,
+    marginHorizontal: 25,
+    height: "43%",
+    borderRadius: 20,
+  },
 });
 
 export default CustomCardContainer;
