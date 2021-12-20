@@ -16,7 +16,6 @@ const RenderEntry: React.FC<RenderEntryProps> = ({ entryStringifed }) => {
     totalSleep: new Date(entryStringifed.totalSleep),
     wakeUpTime: new Date(entryStringifed.wakeUpTime),
   };
-  console.log("entry:", entryStringifed.id);
   const { navigate } = useNavigation();
   const goToEditEntry = () => {
     navigate("EditEntryScreen", { entryStringifed });
@@ -35,7 +34,7 @@ const RenderEntry: React.FC<RenderEntryProps> = ({ entryStringifed }) => {
         title += " ";
       }
     }
-    console.log(title);
+
     return title;
   };
 

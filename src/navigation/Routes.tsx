@@ -22,7 +22,6 @@ const Routes: React.FC<RoutesProps> = ({}) => {
       const sleepEntries = await getSleepEntriesState();
 
       if (sleepEntries) {
-        console.log("slep entries: ", sleepEntries);
         loadEntries(sleepEntries);
       }
     } catch (e) {
