@@ -28,6 +28,7 @@ const ReadEntry: React.FC<ReadEntryProps> = ({
   buttonText = "Add",
   errorMessage,
 }) => {
+  //TODO: włączyc disabled potem
   return (
     <View>
       <View style={styles.section}>

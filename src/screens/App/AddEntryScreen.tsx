@@ -1,6 +1,6 @@
 import AddEntry from "@/components/crud/AddEntry";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   Colors,
   FAB,

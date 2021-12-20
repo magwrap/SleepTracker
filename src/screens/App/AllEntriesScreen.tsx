@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Caption, Colors, Title } from "react-native-paper";
+import { Caption, Colors, Paragraph, Title } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 import useRedux from "@/hooks/useRedux";
 import { FlatList } from "react-native-gesture-handler";
@@ -12,8 +12,13 @@ interface AllEntriesScreenProps {
 
 const AllEntriesScreen: React.FC<AllEntriesScreenProps> = ({ navigation }) => {
   const { sleepEntries, storeEntries } = useRedux();
+  const [sleepEntriesReversed, setSleepEntriesReversed] = React.useState(() =>
+    sleepEntries.reverse()
+  );
+
   ~useEffect(() => {
     storeEntries();
+    setSleepEntriesReversed(sleepEntries.reverse());
   }, [sleepEntries]);
 
   const _renderItem = ({ item }: { item: SleepEntry }) => {
@@ -23,9 +28,20 @@ const AllEntriesScreen: React.FC<AllEntriesScreenProps> = ({ navigation }) => {
     <View style={styles.container}>
       <Title style={styles.title}>Your entries</Title>
 
+      <View style={styles.tableContainer}>
+        <Paragraph style={styles.tableTitle}>Date</Paragraph>
+
+        <Paragraph style={styles.tableTitle}>Hours of sleep</Paragraph>
+
+        <Paragraph style={styles.tableTitle}>Total</Paragraph>
+
+        <Paragraph style={styles.tableTitle}>Edit</Paragraph>
+      </View>
+      <View style={{ width: "100%", marginTop: 2, borderBottomWidth: 1 }} />
+
       {sleepEntries.length && sleepEntries ? (
         <FlatList
-          data={sleepEntries.reverse()}
+          data={sleepEntriesReversed}
           renderItem={_renderItem}
           keyExtractor={(entry: SleepEntry) => entry.id.toString()}
         />
@@ -55,6 +71,16 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 25,
     fontStyle: "italic",
+    color: Colors.white,
+  },
+  tableContainer: {
+    flexDirection: "row",
+
+    justifyContent: "space-between",
+    marginHorizontal: 10,
+  },
+  tableTitle: {
+    maxWidth: "40%",
   },
 });
 

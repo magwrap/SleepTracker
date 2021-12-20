@@ -41,7 +41,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
           testID="datePicker"
           value={date}
           mode={mode}
-          is24Hour={false}
+          is24Hour={true}
           display={"default"}
           onChange={onChange}
         />

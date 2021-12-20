@@ -15,7 +15,7 @@ const AddEntry: React.FC<AddEntryProps> = ({ hideModal }) => {
   const [totalSleep, setTotalSleep] = useState(new Date());
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { addEntry, sleepEntries, storeEntries } = useRedux();
+  const { addEntry, sleepEntries } = useRedux();
 
   useEffect(() => {
     calculateTotalSleep(timeOfSleep, wakeUpTime);
@@ -49,7 +49,7 @@ const AddEntry: React.FC<AddEntryProps> = ({ hideModal }) => {
       }
     } else {
       setErrorMessage(
-        "You have alredy added a entry today! Check all entries to edit today's one"
+        "You have alredy added a entry today! Swipe left to edit today's one"
       );
     }
   };

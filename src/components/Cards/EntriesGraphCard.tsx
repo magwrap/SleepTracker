@@ -4,7 +4,7 @@ import { Button, Card, Paragraph, Title } from "react-native-paper";
 import CustomCardContainer from "../CustomCardContainer";
 
 interface EntriesGraphCardProps {}
-
+//TODO: https://github.com/indiespirit/react-native-chart-kit
 const EntriesGraphCard: React.FC<EntriesGraphCardProps> = ({}) => {
   return (
     <CustomCardContainer>

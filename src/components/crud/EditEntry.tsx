@@ -77,7 +77,7 @@ const EditEntry: React.FC<EditEntryProps> = ({ entry }) => {
         timeOfSleep={timeOfSleep}
         setTimeOfSleep={setTimeOfSleep}
         totalSleep={totalSleep}
-        buttonText="Edit"
+        buttonText="Submit changes"
       />
       <View
         style={{ position: "absolute", bottom: 0, width: "100%", margin: 10 }}>

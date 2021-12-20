@@ -15,8 +15,9 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginVertical: 20,
     marginHorizontal: 25,
-    height: "43%",
+    height: "44%",
     borderRadius: 20,
+    borderWidth: 7,
   },
 });
 

@@ -8,7 +8,14 @@ interface EditEntryScreenProps {
 }
 
 const EditEntryScreen: React.FC<EditEntryScreenProps> = ({ route }) => {
-  const entry = route.params.entry;
+  const entryStringifed = route.params.entryStringifed;
+  const entry: SleepEntry = {
+    id: entryStringifed.id,
+    sleepDate: new Date(entryStringifed.sleepDate),
+    timeOfSleep: new Date(entryStringifed.timeOfSleep),
+    totalSleep: new Date(entryStringifed.totalSleep),
+    wakeUpTime: new Date(entryStringifed.wakeUpTime),
+  };
 
   return (
     <View style={styles.container}>
